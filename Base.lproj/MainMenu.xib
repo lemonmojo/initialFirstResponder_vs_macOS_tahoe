@@ -14,7 +14,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="InitialFirstResponderTest" customModuleProvider="target">
             <connections>
-                <outlet property="checkBoxMainQueue" destination="Pih-f6-u3b" id="X6h-h0-rtx"/>
+                <outlet property="popupButtonMode" destination="DOY-6r-4vG" id="HPw-y9-uYk"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -683,14 +683,14 @@
         </menu>
         <window title="Initial First Responder Test" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
-            <rect key="contentRect" x="335" y="390" width="303" height="100"/>
+            <rect key="contentRect" x="335" y="390" width="351" height="132"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1470" height="922"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="303" height="100"/>
+                <rect key="frame" x="0.0" y="0.0" width="351" height="132"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mUi-hv-v2I">
-                        <rect key="frame" x="107" y="56" width="90" height="24"/>
+                        <rect key="frame" x="131" y="88" width="90" height="24"/>
                         <buttonCell key="cell" type="push" title="Show Alert" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3Vt-6W-Gtz">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -699,26 +699,43 @@
                             <action selector="showAlert_action:" target="Voe-Tx-rLC" id="AZD-a4-zL2"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pih-f6-u3b">
-                        <rect key="frame" x="104" y="20" width="95" height="16"/>
-                        <buttonCell key="cell" type="check" title="Main Queue" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="lEc-Fc-swd">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DOY-6r-4vG">
+                        <rect key="frame" x="58" y="20" width="235" height="24"/>
+                        <popUpButtonCell key="cell" type="push" title="DispatchQueue.Main.async" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="OR7-5P-iCd" id="uZI-fv-CXA">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="NNv-l5-7V1">
+                                <items>
+                                    <menuItem title="DispatchQueue.Main.async" state="on" id="OR7-5P-iCd"/>
+                                    <menuItem title="performSelectorOnMainThread" id="Wcy-f6-3Tn"/>
+                                    <menuItem title="Function Call" id="Nkk-6n-OKH"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ghm-xh-Zp8">
+                        <rect key="frame" x="155" y="52" width="42" height="16"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" title="Mode:" id="msz-vw-R7s">
                             <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="DOY-6r-4vG" firstAttribute="top" secondItem="Ghm-xh-Zp8" secondAttribute="bottom" constant="8" symbolic="YES" id="1cz-vS-tK2"/>
                     <constraint firstItem="mUi-hv-v2I" firstAttribute="centerX" secondItem="EiT-Mj-1SZ" secondAttribute="centerX" id="8sp-zf-TlW"/>
-                    <constraint firstAttribute="bottom" secondItem="Pih-f6-u3b" secondAttribute="bottom" constant="20" symbolic="YES" id="HPh-uc-j8P"/>
-                    <constraint firstItem="Pih-f6-u3b" firstAttribute="centerX" secondItem="EiT-Mj-1SZ" secondAttribute="centerX" id="PXz-cK-D6C"/>
-                    <constraint firstItem="Pih-f6-u3b" firstAttribute="top" secondItem="mUi-hv-v2I" secondAttribute="bottom" constant="20" symbolic="YES" id="for-lv-rYC"/>
+                    <constraint firstItem="Ghm-xh-Zp8" firstAttribute="centerX" secondItem="EiT-Mj-1SZ" secondAttribute="centerX" id="Gnl-80-MpY"/>
+                    <constraint firstItem="Ghm-xh-Zp8" firstAttribute="top" secondItem="mUi-hv-v2I" secondAttribute="bottom" constant="20" id="XIz-Ha-rtH"/>
+                    <constraint firstItem="DOY-6r-4vG" firstAttribute="centerX" secondItem="EiT-Mj-1SZ" secondAttribute="centerX" id="dlv-t8-CyY"/>
+                    <constraint firstAttribute="bottom" secondItem="DOY-6r-4vG" secondAttribute="bottom" constant="20" symbolic="YES" id="fmy-E6-iIH"/>
                     <constraint firstItem="mUi-hv-v2I" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" symbolic="YES" id="gSn-42-27V"/>
                 </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="Voe-Tx-rLC" id="top-28-M4D"/>
             </connections>
-            <point key="canvasLocation" x="111.5" y="270"/>
+            <point key="canvasLocation" x="135.5" y="286"/>
         </window>
     </objects>
 </document>
