@@ -27,21 +27,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         func show() {
             let alert = NSAlert()
             
-            alert.alertStyle = .informational
             alert.messageText = "NSAlert with initialFirstResponder"
             alert.informativeText = "The textfield should be focused."
             
             alert.addButton(withTitle: "OK")
             
-            let box = NSView(frame: .init(x: 0, y: 0, width: 300, height: 20))
-            
             let textField = NSTextField(string: "")
-            textField.frame = box.bounds
+            textField.frame = .init(x: 0, y: 0, width: 300, height: 20)
             textField.placeholderString = "Should be focused"
             
-            box.addSubview(textField)
-            
-            alert.accessoryView = box
+            alert.accessoryView = textField
             alert.window.initialFirstResponder = textField
             
             alert.runModal()
